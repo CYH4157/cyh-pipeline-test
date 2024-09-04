@@ -4,4 +4,4 @@ loguru
 datasets
 typer
 python-dotenv
-gorq
+groq
