@@ -52,7 +52,12 @@ class Pipeline:
         global documents, index
 
         print('=============  SimpleDirectoryReader =============')
-        self.documents = SimpleDirectoryReader("/app/data", required_exts=[".pdf", ".docx"]).load_data()
+        # self.documents = SimpleDirectoryReader("/app/data", required_exts=[".pdf", ".docx"]).load_data()
+        try:
+            self.documents = SimpleDirectoryReader("/app/data", required_exts=[".pdf", ".docx"]).load_data()
+        except Exception as e:
+            print(f"Failed to load data: {e}")
+
         
         print('=============  VectorStoreIndex =============')
         self.index = VectorStoreIndex.from_documents(self.documents)
