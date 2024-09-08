@@ -1,6 +1,6 @@
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
 from llama_index.llms.ollama import Ollama
-
+from llama_index.embeddings.ollama import OllamaEmbedding
 documents = SimpleDirectoryReader("data").load_data()
 
 # bge-base embedding model
