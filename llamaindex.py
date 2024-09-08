@@ -47,11 +47,14 @@ class Pipeline:
             model=self.valves.LLAMAINDEX_MODEL_NAME,
             base_url=self.valves.LLAMAINDEX_OLLAMA_BASE_URL,
         )
-
+        print('=============  ollama setting finished =============')
         # This function is called when the server is started.
         global documents, index
 
+        print('=============  SimpleDirectoryReader =============')
         self.documents = SimpleDirectoryReader("/app/data").load_data()
+
+        print('=============  VectorStoreIndex =============')
         self.index = VectorStoreIndex.from_documents(self.documents)
         pass
 
@@ -64,7 +67,7 @@ class Pipeline:
     ) -> Union[str, Generator, Iterator]:
         # This is where you can add your custom RAG pipeline.
         # Typically, you would retrieve relevant information from your knowledge base and synthesize it to generate a response.
-        print('=============  ollama setting finished =============')
+        print('=============  index.as_query_engine =============')
         print(messages)
         print(user_message)
         
