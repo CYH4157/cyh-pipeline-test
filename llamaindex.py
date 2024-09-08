@@ -52,8 +52,8 @@ class Pipeline:
         global documents, index
 
         print('=============  SimpleDirectoryReader =============')
-        self.documents = SimpleDirectoryReader("/app/data").load_data()
-
+        self.documents = SimpleDirectoryReader("/app/data", required_exts=[".pdf", ".docx"]).load_data()
+        
         print('=============  VectorStoreIndex =============')
         self.index = VectorStoreIndex.from_documents(self.documents)
         pass
