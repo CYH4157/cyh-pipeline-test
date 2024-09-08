@@ -1,23 +1,21 @@
-This pipeline is build to OpenAI spec and runs the backend of our pipleine with open-webui as the front end.
+需要在pipeline內安裝:
 
-This is mean to acompany our youtube video here: https://www.youtube.com/watch?v=KxT7lHaPDJ4&t=28s
+```
+pip install llama-index==0.10.56
+pip install llama-index-embeddings-ollama
+```
 
-This pipeline is build to OpenAi spec and used with open-webui as a front end.
+在pipeline內先解除:
 
-* note you must install the requirements for our project.
-* Just take the requirement.txt copy to your python environment.
-* It's recommented you create a new virtualenv per project.
+```
+pip uninstall nltk
+pip install nltk
+```
 
-Once you create you virtual env
-py -m venv .venv 
-
-Linux\Windows activate their respective virtual environment diffently.
-For windows:
-.venv\Scripts\activate
-For Linux:
-source .venv/Script/activate
+在ollama上先pull 要用的 image下來
+docker exec -it ollama ollama pull chatfire/bge-m3:q8_0
 
 
-Lic is MIT
+接著重新啟動 pipeline 容器, 這邊可能 ip 會變動, 需要注意一下有沒有跟openwebui連動
 
-Ray.Bernard@outlook.com
+啟動後把 寫好的github code.py 連結放到 admin panel 上的pipeline
