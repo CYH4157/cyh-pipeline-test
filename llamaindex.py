@@ -1,7 +1,7 @@
 """
 title: Llama Index Ollama Pipeline
 author: open-webui
-date: 2024-05-30
+date: 2024-09-09
 version: 1.0
 license: MIT
 description: A pipeline for retrieving relevant information from a knowledge base using the Llama Index library with Ollama embeddings.
@@ -25,7 +25,10 @@ class Pipeline:
     def __init__(self):
         self.documents = None
         self.index = None
-
+        
+        self.id = "cyh_lamaindex_pipe"
+        self.name = "cyh_lamaindex_pipe"
+        
         self.valves = self.Valves(
             **{
                 "LLAMAINDEX_OLLAMA_BASE_URL": os.getenv("LLAMAINDEX_OLLAMA_BASE_URL", "http://172.17.0.1:11434"),
