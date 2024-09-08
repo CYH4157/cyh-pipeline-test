@@ -64,10 +64,10 @@ class Pipeline:
     ) -> Union[str, Generator, Iterator]:
         # This is where you can add your custom RAG pipeline.
         # Typically, you would retrieve relevant information from your knowledge base and synthesize it to generate a response.
-
+        print('=============  ollama setting finished =============')
         print(messages)
         print(user_message)
-
+        
         query_engine = self.index.as_query_engine(streaming=True)
         response = query_engine.query(user_message)
 
